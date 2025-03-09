@@ -21,7 +21,7 @@ def log_error(route_name, error):
     logging.error(f' SERVER, DB_SQLite.py({route_name}): {error}')
 
 
-def create_data_base():
+def create_database():
     try:
         # Подключение к базе данных SQLite
         conn = sqlite3.connect(DB_NAME)
