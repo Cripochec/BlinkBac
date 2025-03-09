@@ -1,4 +1,5 @@
 import logging
+from botocore.config import Config
 
 import boto3
 from botocore.exceptions import NoCredentialsError
@@ -40,23 +41,26 @@ def upload_photo_to_s3(photo_data, object_name):
     try:
         bucket_name = 'flopy-folder'
 
+        # Создаем клиента с правильной конфигурацией
         s3_client = boto3.client(
             's3',
             endpoint_url='https://storage.yandexcloud.net',
             aws_access_key_id='YCAJESYKeslrDhzmpCLJMfShP',
             aws_secret_access_key='YCMQ8fFvl0Zu1sosm15WzsAUgRvSLZIU_lAU8een',
-            region_name='ru-central1'
+            region_name='ru-central1',
+            config=Config(signature_version='s3v4')
         )
 
         # Преобразуем данные изображения в поток
         from io import BytesIO
         image_stream = BytesIO(photo_data)
 
-        # Загрузка файла в S3 с использованием put_object
-        s3_client.put_object(
-            Bucket=bucket_name,
-            Key=object_name,
-            Body=image_stream.getvalue()
+        # Загрузка файла в S3
+        s3_client.upload_fileobj(
+            image_stream,
+            bucket_name,
+            object_name,
+            ExtraArgs={'ContentType': 'image/jpeg'}  # Укажите правильный тип контента
         )
 
     except Exception as e:
