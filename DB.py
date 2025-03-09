@@ -6,17 +6,17 @@ import ast
 from API_YandexCloud import upload_photo_to_s3, get_photo_url, delete_photo_from_s3
 
 # Подключение к MySQL
-# DB_HOST = "213.171.8.190"
-# DB_PORT = 3306
-# DB_USER = "gen_user"
-# DB_PASSWORD = "Z;26w3wm>RVl8n"
-# DB_NAME = "default_db"
-
-DB_HOST = "192.168.1.6"
+DB_HOST = "213.171.8.190"
 DB_PORT = 3306
 DB_USER = "gen_user"
 DB_PASSWORD = "Z;26w3wm>RVl8n"
 DB_NAME = "default_db"
+
+# DB_HOST = "192.168.1.6"
+# DB_PORT = 3306
+# DB_USER = "gen_user"
+# DB_PASSWORD = "Z;26w3wm>RVl8n"
+# DB_NAME = "default_db"
 
 # Настройка логирования
 logging.basicConfig(

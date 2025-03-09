@@ -1,21 +1,23 @@
-2025-03-05 13:54:29,573 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-03-10 00:46:13,990 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:8000
  * Running on http://192.168.0.107:8000
-2025-03-05 13:54:29,573 INFO [33mPress CTRL+C to quit[0m
-2025-03-05 13:54:29,576 INFO  * Restarting with stat
-2025-03-05 13:54:30,687 WARNING  * Debugger is active!
-2025-03-05 13:54:30,695 INFO  * Debugger PIN: 134-053-922
-2025-03-05 13:54:43,050 INFO 192.168.0.102 - - [05/Mar/2025 13:54:43] "POST /register_person HTTP/1.1" 200 -
-2025-03-05 13:55:23,317 INFO 192.168.0.102 - - [05/Mar/2025 13:55:23] "POST /add_new_person_route HTTP/1.1" 200 -
-2025-03-05 13:58:43,390 INFO  * Detected change in 'C:\\Project\\FlopyB\\DB.py', reloading
-2025-03-05 13:58:43,488 INFO  * Restarting with stat
-2025-03-05 13:58:54,465 ERROR SERVER, DB_MySQL.py(create_tables): (2003, "Can't connect to MySQL server on '192.168.1.6' (timed out)")
-2025-03-05 13:58:54,480 WARNING  * Debugger is active!
-2025-03-05 13:58:54,489 INFO  * Debugger PIN: 134-053-922
-2025-03-05 14:05:24,868 INFO  * Detected change in 'C:\\Project\\FlopyB\\API.py', reloading
-2025-03-05 14:05:24,966 INFO  * Restarting with stat
-2025-03-05 14:05:35,941 ERROR SERVER, DB_MySQL.py(create_database): (2003, "Can't connect to MySQL server on '192.168.1.6' (timed out)")
-2025-03-05 14:05:45,944 ERROR SERVER, DB_MySQL.py(create_tables): (2003, "Can't connect to MySQL server on '192.168.1.6' (timed out)")
-2025-03-05 14:05:45,957 WARNING  * Debugger is active!
-2025-03-05 14:05:45,965 INFO  * Debugger PIN: 134-053-922
+2025-03-10 00:46:13,991 INFO [33mPress CTRL+C to quit[0m
+2025-03-10 00:46:13,993 INFO  * Restarting with stat
+2025-03-10 00:46:15,220 WARNING  * Debugger is active!
+2025-03-10 00:46:15,229 INFO  * Debugger PIN: 134-053-922
+2025-03-10 00:47:15,693 INFO 192.168.0.100 - - [10/Mar/2025 00:47:15] "POST /register_person HTTP/1.1" 200 -
+2025-03-10 00:47:34,790 INFO 192.168.0.100 - - [10/Mar/2025 00:47:34] "POST /add_new_person_route HTTP/1.1" 200 -
+2025-03-10 00:49:16,059 INFO 192.168.0.100 - - [10/Mar/2025 00:49:16] "POST /save_persons_info HTTP/1.1" 200 -
+2025-03-10 00:49:20,859 INFO 192.168.0.100 - - [10/Mar/2025 00:49:20] "POST /save_persons_photos HTTP/1.1" 200 -
+2025-03-10 00:49:21,663 INFO 192.168.0.100 - - [10/Mar/2025 00:49:21] "POST /pars_persons_info HTTP/1.1" 200 -
+2025-03-10 00:49:44,145 INFO 192.168.0.100 - - [10/Mar/2025 00:49:44] "POST /get_incognito HTTP/1.1" 200 -
+2025-03-10 00:49:45,167 INFO 192.168.0.100 - - [10/Mar/2025 00:49:45] "POST /pars_persons_info HTTP/1.1" 200 -
+2025-03-10 00:49:57,346 INFO 192.168.0.100 - - [10/Mar/2025 00:49:57] "POST /pars_persons_info HTTP/1.1" 200 -
+2025-03-10 00:49:58,058 INFO 192.168.0.100 - - [10/Mar/2025 00:49:58] "POST /pars_persons_info HTTP/1.1" 200 -
+2025-03-10 00:49:58,833 INFO 192.168.0.100 - - [10/Mar/2025 00:49:58] "POST /pars_persons_info HTTP/1.1" 200 -
+2025-03-10 00:51:19,259 INFO 192.168.0.100 - - [10/Mar/2025 00:51:19] "POST /get_incognito HTTP/1.1" 200 -
+2025-03-10 00:51:20,685 INFO 192.168.0.100 - - [10/Mar/2025 00:51:20] "POST /pars_persons_info HTTP/1.1" 200 -
+2025-03-10 00:51:53,284 INFO 192.168.0.100 - - [10/Mar/2025 00:51:53] "POST /pars_persons_list HTTP/1.1" 200 -
+2025-03-10 00:51:56,954 INFO 192.168.0.100 - - [10/Mar/2025 00:51:56] "POST /pars_persons_info HTTP/1.1" 200 -
+2025-03-10 00:51:58,812 INFO 192.168.0.100 - - [10/Mar/2025 00:51:58] "POST /pars_persons_list HTTP/1.1" 200 -
