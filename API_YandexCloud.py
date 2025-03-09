@@ -48,18 +48,16 @@ def upload_photo_to_s3(photo_data, object_name):
             config=Config(signature_version='s3v4', s3={'addressing_style': 'virtual'})
         )
 
-        image_stream = BytesIO(photo_data)
-        image_stream.seek(0)  # Сбрасываем позицию в начале потока
-
         # Вычисляем MD5-хеш файла
         md5_hash = hashlib.md5(photo_data).digest()
         md5_base64 = base64.b64encode(md5_hash).decode('utf-8')
 
-        s3_client.upload_fileobj(
-            image_stream,
-            bucket_name,
-            object_name,
-            ExtraArgs={'ContentMD5': md5_base64}  # Передаем MD5-хеш
+        # Загрузка файла с правильным хэшем
+        s3_client.put_object(
+            Bucket=bucket_name,
+            Key=object_name,
+            Body=photo_data,
+            ContentMD5=md5_base64
         )
 
     except Exception as e:
