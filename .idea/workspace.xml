@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d59202ca-2005-49d4-b07b-ac7125e594d4" name="Changes" comment="Bac to MySQL :) 4">
+    <list default="true" id="d59202ca-2005-49d4-b07b-ac7125e594d4" name="Changes" comment="Bac to MySQL :) 7">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API_YandexCloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_YandexCloud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -534,7 +535,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741551962048</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Bac to MySQL :) 5">
+      <option name="closed" value="true" />
+      <created>1741553039196</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1741553039196</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Bac to MySQL :) 6">
+      <option name="closed" value="true" />
+      <created>1741553344065</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1741553344065</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Bac to MySQL :) 7">
+      <option name="closed" value="true" />
+      <created>1741553750057</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1741553750057</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -549,9 +574,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test auto update cod in server" />
-    <MESSAGE value="test 2 auto update cod in server" />
-    <MESSAGE value="test 3 auto update cod in server" />
     <MESSAGE value="test 4 auto update cod in server" />
     <MESSAGE value="test 5 auto update cod in server" />
     <MESSAGE value="test 6 auto update cod in server" />
@@ -574,7 +596,10 @@
     <MESSAGE value="Bac to MySQL :) 2" />
     <MESSAGE value="Bac to MySQL :) 3" />
     <MESSAGE value="Bac to MySQL :) 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bac to MySQL :) 4" />
+    <MESSAGE value="Bac to MySQL :) 5" />
+    <MESSAGE value="Bac to MySQL :) 6" />
+    <MESSAGE value="Bac to MySQL :) 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bac to MySQL :) 7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
