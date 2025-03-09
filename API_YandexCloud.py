@@ -1,6 +1,7 @@
 import logging
 import boto3
-from botocore.exceptions import NoCredentialsError
+import hashlib
+import base64
 from botocore.config import Config
 from io import BytesIO
 
@@ -44,16 +45,26 @@ def upload_photo_to_s3(photo_data, object_name):
             aws_access_key_id='YCAJESYKeslrDhzmpCLJMfShP',
             aws_secret_access_key='YCMQ8fFvl0Zu1sosm15WzsAUgRvSLZIU_lAU8een',
             region_name='ru-central1',
-            config=Config(signature_version='s3v4')
+            config=Config(signature_version='s3v4', s3={'addressing_style': 'virtual'})
         )
 
         image_stream = BytesIO(photo_data)
-        image_stream.seek(0)  # ВАЖНО!
+        image_stream.seek(0)  # Сбрасываем позицию в начале потока
 
-        s3_client.upload_fileobj(image_stream, bucket_name, object_name)
+        # Вычисляем MD5-хеш файла
+        md5_hash = hashlib.md5(photo_data).digest()
+        md5_base64 = base64.b64encode(md5_hash).decode('utf-8')
+
+        s3_client.upload_fileobj(
+            image_stream,
+            bucket_name,
+            object_name,
+            ExtraArgs={'ContentMD5': md5_base64}  # Передаем MD5-хеш
+        )
 
     except Exception as e:
         log_error("upload_photo_to_s3", e)
+
 
 def get_photo_url(object_name):
     try:
