@@ -1,9 +1,8 @@
 import logging
+
 import boto3
-import hashlib
-import base64
-from botocore.config import Config
-from io import BytesIO
+from botocore.exceptions import NoCredentialsError
+
 
 # Настройка логирования
 logging.basicConfig(
@@ -19,45 +18,45 @@ def log_error(route_name, error):
 
 def delete_photo_from_s3(object_name):
     try:
+        # Создание клиента S3
         bucket_name = 'flopy-folder'
+
         s3_client = boto3.client(
             's3',
             endpoint_url='https://storage.yandexcloud.net',
             aws_access_key_id='YCAJESYKeslrDhzmpCLJMfShP',
             aws_secret_access_key='YCMQ8fFvl0Zu1sosm15WzsAUgRvSLZIU_lAU8een',
-            region_name='ru-central1',
-            config=Config(signature_version='s3v4')
+            region_name='ru-central1'
         )
+
+        # Удаление файла из S3
         s3_client.delete_object(Bucket=bucket_name, Key=object_name)
+
     except Exception as e:
         log_error("delete_photo_from_s3", e)
 
 
 def upload_photo_to_s3(photo_data, object_name):
     try:
-        if not photo_data:
-            raise ValueError("photo_data is empty or None")
-
         bucket_name = 'flopy-folder'
+
         s3_client = boto3.client(
             's3',
             endpoint_url='https://storage.yandexcloud.net',
             aws_access_key_id='YCAJESYKeslrDhzmpCLJMfShP',
             aws_secret_access_key='YCMQ8fFvl0Zu1sosm15WzsAUgRvSLZIU_lAU8een',
-            region_name='ru-central1',
-            config=Config(signature_version='s3v4', s3={'addressing_style': 'virtual'})
+            region_name='ru-central1'
         )
 
-        # Вычисляем MD5-хеш файла
-        md5_hash = hashlib.md5(photo_data).digest()
-        md5_base64 = base64.b64encode(md5_hash).decode('utf-8')
+        # Преобразуем данные изображения в поток
+        from io import BytesIO
+        image_stream = BytesIO(photo_data)
 
-        # Загрузка файла с правильным хэшем
+        # Загрузка файла в S3 с использованием put_object
         s3_client.put_object(
             Bucket=bucket_name,
             Key=object_name,
-            Body=photo_data,
-            ContentMD5=md5_base64
+            Body=image_stream.getvalue()
         )
 
     except Exception as e:
@@ -66,6 +65,9 @@ def upload_photo_to_s3(photo_data, object_name):
 
 def get_photo_url(object_name):
     try:
-        return f"https://flopy-folder.storage.yandexcloud.net/{object_name}"
+        # Формирование URL
+        url = f"https://flopy-folder.storage.yandexcloud.net/{object_name}"
+        return url
+
     except Exception as e:
-        log_error("get_photo_url", e)
+        log_error("delete_photo_from_s3", e)
